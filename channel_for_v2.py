@@ -139,6 +139,10 @@ def build_channel_apk(channel_file_txt, mother_apk, mother_apk_version, channel_
         #
         # 删除input_apk
         os.remove(input_apk)
+        # 删除.idsig
+        idsig = output_apk + '.idsig'
+        if os.path.exists(idsig):
+            os.remove(idsig)
     #
     # output_ zn_channels_ test-release/ test-release -goole_market_open .apk
     google_apk = output_dir + mother_apk_name_pre + "-goole_market_open" + mother_apk_name_extension
